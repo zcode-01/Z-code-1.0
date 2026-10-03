@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Variables & Data Types | Z-Code</title>
+  <link rel="stylesheet" href="python.css">
+  <style>
+    .run-box {
+      background: #0d1117;
+      border: 1px solid rgba(226, 190, 111, 0.25);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 24px 0;
+    }
+    .run-box pre {
+      margin: 0;
+      color: #79c0ff;
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .run-btn {
+      margin-top: 14px;
+      background: linear-gradient(#f5d993, #e4bb69);
+      color: #1a1711;
+      border: none;
+      padding: 9px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .run-btn:hover {
+      background: linear-gradient(#ffe2a3, #f0cf88);
+      transform: translateY(-1px);
+    }
+    .output-box {
+      margin-top: 14px;
+      padding: 14px;
+      background: #161b22;
+      border-radius: 8px;
+      border-left: 3px solid #56d364;
+      font-family: monospace;
+      font-size: 13px;
+      color: #56d364;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="top-logo" onclick="window.location.href='home.html'" style="cursor:pointer">
+      <div class="z-mark">Z</div>
+      <span>CODE</span>
+    </div>
+
+    <div class="search-box">
+      <span>⌕</span>
+      <input type="text" placeholder="Search courses, topics, or anything...">
+      <kbd>⌘ K</kbd>
+    </div>
+
+    <div class="top-right" onclick="window.location.href='home.html'" style="cursor:pointer">
+      <span class="notification">♧</span>
+      <div class="profile-circle">D</div>
+      <span class="profile-name">Dhanush</span>
+      <span class="arrow">⌄</span>
+    </div>
+  </header>
+
+  <!-- PAGE LAYOUT -->
+  <div class="page-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <nav>
+        <a href="home.html"><span>⌂</span>Dashboard</a>
+        <a class="active" href="python.html"><span>▣</span>Learn</a>
+        <a href="home.html"><span>&lt;/&gt;</span>Projects</a>
+        <a href="quiz.html"><span>▷</span>Practice</a>
+        <a href="home.html"><span>♙</span>Certificates</a>
+        <a href="home.html"><span>♧</span>Community</a>
+        <a href="home.html"><span>▱</span>Resources</a>
+        <a href="home.html"><span>♙</span>Profile</a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <a href="home.html"><span>⚙</span>Settings</a>
+        <div class="sidebar-slogan">✦<br><small>Better Skills<br>· Bigger Dreams</small></div>
+        <div class="sidebar-z">Z</div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT (Properly offset from fixed sidebar) -->
+    <main class="main-content">
+
+      <!-- PAGE HEADING -->
+      <div class="course-heading">
+        <div>
+          <div class="eyebrow">
+            LEARN · PYTHON · CHAPTER 02
+          </div>
+
+          <h1>Variables & Data Types</h1>
+
+          <p>
+            Learn how to store, manipulate, and represent data in Python programs.
+          </p>
+        </div>
+
+        <div class="python-badge">
+          <img src="assets/Python_logo.jpeg" alt="Python Logo">
+        </div>
+      </div>
+
+      <!-- COURSE PROGRESS SUMMARY -->
+      <section class="progress-card">
+        <div class="progress-top">
+          <div>
+            <span class="section-label">CHAPTER PROGRESS</span>
+            <h2>Lesson 02 of 12</h2>
+          </div>
+          <span class="percent-badge">67% Complete</span>
+        </div>
+        <div class="course-progress-bar">
+          <span style="width: 67%;"></span>
+        </div>
+      </section>
+
+      <!-- CHAPTER CONTENT -->
+      <article style="margin-top: 30px; line-height: 1.8; color: #d0ccc4; font-size: 15px;">
+        
+        <h2 style="color: #f7d994; margin: 28px 0 12px; font-size: 22px;">1. What is a Variable?</h2>
+        <p>In Python, a <strong>variable</strong> is like a labeled container that stores a value in computer memory. Unlike languages such as C++ or Java, Python uses <em>dynamic typing</em> — you don't have to declare the type ahead of time; Python figures it out automatically!</p>
+
+        <div class="run-box">
+          <pre><code># Creating variables in Python
+user_name = "Dhanush"
+user_xp = 100
+level = 1
+is_active = True
+
+print(f"Learner: {user_name} | Level: {level} | XP: {user_xp}")</code></pre>
+          <button class="run-btn" onclick="runSnippet1()">▶ Run Code Live</button>
+          <div class="output-box" id="output1">Output:<br>Learner: Dhanush | Level: 1 | XP: 100</div>
+        </div>
+
+        <h2 style="color: #f7d994; margin: 36px 0 12px; font-size: 22px;">2. Core Data Types in Python</h2>
+        <ul style="padding-left: 24px; line-height: 2.2;">
+          <li><strong>str (String):</strong> Text enclosed in single or double quotes, e.g. <code>"Z-Code"</code></li>
+          <li><strong>int (Integer):</strong> Whole numbers without decimal points, e.g. <code>42</code>, <code>-7</code></li>
+          <li><strong>float (Floating Point):</strong> Numbers with decimal precision, e.g. <code>3.14</code>, <code>99.99</code></li>
+          <li><strong>bool (Boolean):</strong> Logical truth values — either <code>True</code> or <code>False</code></li>
+          <li><strong>list:</strong> Ordered, mutable collections of values, e.g. <code>["Python", "JavaScript", "Rust"]</code></li>
+        </ul>
+
+        <h2 style="color: #f7d994; margin: 36px 0 12px; font-size: 22px;">3. Variable Naming Conventions (PEP 8)</h2>
+        <ol style="padding-left: 24px; line-height: 2.2;">
+          <li>Variable names must start with a letter or underscore (<code>_</code>), never a digit (e.g. <code>2name</code> will produce a syntax error).</li>
+          <li>They can only contain letters, numbers, and underscores (<code>a-z</code>, <code>0-9</code>, <code>_</code>).</li>
+          <li>Variables are case-sensitive: <code>age</code>, <code>Age</code>, and <code>AGE</code> are three completely different variables.</li>
+          <li>Use <code>snake_case</code> for multi-word variables (e.g., <code>total_quiz_score</code>).</li>
+        </ol>
+
+        <!-- NAVIGATION FOOTER -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:60px; padding-top:28px; border-top:1px solid rgba(226,190,111,0.25);">
+          <a href="python.html" style="padding:12px 24px; border-radius:10px; border:1px solid rgba(226,190,111,0.35); color:#e9c77d; text-decoration:none; font-weight:600;">
+            ← Back to Introduction
+          </a>
+          <a href="quiz.html" style="padding:12px 26px; border-radius:10px; background:linear-gradient(#f5d993,#e4bb69); color:#1a1711; text-decoration:none; font-weight:700;">
+            Practice Chapter 1 Quiz ⚡
+          </a>
+        </div>
+
+      </article>
+
+    </main>
+
+  </div>
+
+  <script>
+    function runSnippet1() {
+      const out = document.getElementById("output1");
+      out.style.display = "block";
+    }
+  </script>
+</body>
+</html>

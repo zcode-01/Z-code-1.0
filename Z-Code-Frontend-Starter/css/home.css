@@ -79,3 +79,158 @@
     object-fit: cover;
     display: block;
 }
+
+/* ── Interactive Modals & Dropdowns ── */
+.profile-dropdown {
+  position: absolute;
+  top: 68px;
+  right: 24px;
+  width: 260px;
+  background: #0d0d0d;
+  border: 1px solid rgba(226, 190, 111, 0.35);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+  padding: 16px;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 100;
+  animation: fadeInDown 0.2s ease;
+}
+.profile-dropdown.show { display: flex; }
+.dropdown-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.dropdown-user-info strong { display: block; font-size: 15px; color: #f3f1ed; }
+.dropdown-user-info small { font-size: 12px; color: #9b9892; }
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #d4d0c9;
+  text-decoration: none;
+  font-size: 13px;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.dropdown-item:hover {
+  background: rgba(233, 199, 125, 0.1);
+  color: #e9c77d;
+}
+.logout-item { color: #f87171 !important; }
+.logout-item:hover { background: rgba(239, 68, 68, 0.15) !important; color: #fca5a5 !important; }
+
+/* ── Notifications Popover ── */
+.notif-popover {
+  position: absolute;
+  top: 68px;
+  right: 80px;
+  width: 320px;
+  background: #0d0d0d;
+  border: 1px solid rgba(226, 190, 111, 0.35);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+  padding: 16px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 100;
+  animation: fadeInDown 0.2s ease;
+}
+.notif-popover.show { display: flex; }
+.notif-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #f7d994;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 8px;
+}
+.notif-item {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #ccc8c0;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+}
+.notif-icon { color: #e9c77d; font-size: 16px; }
+
+/* ── Global Modal Backdrop ── */
+.z-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 2000;
+  display: none;
+  place-items: center;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+.z-modal-backdrop.open { display: grid; }
+.z-modal {
+  background: #0c0b09;
+  border: 1px solid rgba(226, 190, 111, 0.35);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 60px rgba(226, 190, 111, 0.08);
+  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 28px 32px;
+}
+.z-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+.z-modal-header h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #f7d994;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.z-modal-close {
+  background: transparent;
+  border: none;
+  color: #8f8a82;
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+}
+.z-modal-close:hover { color: #f3f1ed; }
+.z-modal-body { color: #d0ccc4; font-size: 14px; line-height: 1.6; }
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

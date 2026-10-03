@@ -1,0 +1,30 @@
+# ─── Python & Virtual Environments ───────────────────────────
+backend/venv/
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# ─── Environment Secrets ──────────────────────────────────────
+backend/.env
+.env
+.env.local
+
+# ─── Database Files (Created automatically by setup.sh/seed.py)
+*.sqlite3
+*.db
+backend/zcode.db
+
+# ─── Operating System & Editor Junk ───────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+__MACOSX/
+*.swp
+*.swo
+.idea/
+.vscode/

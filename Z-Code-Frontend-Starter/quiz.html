@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Z-Code — Python Basics Quiz</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/quiz.css">
+</head>
+<body class="quiz-page">
+
+  <!-- Top Navigation Header -->
+  <header class="quiz-navbar">
+    <div class="quiz-nav-left">
+      <a href="python.html" class="back-link" title="Exit to Lesson">
+        <span>←</span> Exit Quiz
+      </a>
+      <div class="quiz-title-wrap">
+        <span class="quiz-course-tag">Python Programming</span>
+        <span class="quiz-main-title">Chapter 1: Basics Knowledge Check</span>
+      </div>
+    </div>
+    <div class="quiz-nav-right">
+      <div class="xp-badge">⚡ +100 XP</div>
+    </div>
+  </header>
+
+  <!-- Progress Indicator -->
+  <div class="quiz-progress-strip">
+    <div class="quiz-progress-fill" id="progressFill"></div>
+  </div>
+
+  <!-- Main Quiz Container -->
+  <main class="quiz-container">
+    <div class="quiz-card-box" id="quizCard">
+      
+      <!-- Question Section -->
+      <div id="questionView">
+        <div class="quiz-meta-row">
+          <div class="question-stepper" id="questionStepper">
+            Question 1 <span>of 5</span>
+          </div>
+          <div class="question-dots" id="questionDots">
+            <div class="q-dot active" data-q="0"></div>
+            <div class="q-dot" data-q="1"></div>
+            <div class="q-dot" data-q="2"></div>
+            <div class="q-dot" data-q="3"></div>
+            <div class="q-dot" data-q="4"></div>
+          </div>
+        </div>
+
+        <h2 class="question-text" id="questionText">Loading question...</h2>
+
+        <div class="options-grid" id="optionsGrid">
+          <!-- Options rendered dynamically by quiz.js -->
+        </div>
+
+        <div class="quiz-actions">
+          <button class="nav-btn prev-btn" id="prevBtn" disabled>
+            ← Previous
+          </button>
+          <button class="nav-btn next-btn" id="nextBtn">
+            Next →
+          </button>
+        </div>
+      </div>
+
+      <!-- Result / Success View -->
+      <div class="quiz-result-view" id="resultView">
+        <div class="result-icon" id="resultIcon">🎉</div>
+        <h2 class="result-heading" id="resultHeading">Quiz Completed!</h2>
+        <p class="result-sub" id="resultMessage">Scoring your answers...</p>
+
+        <div class="score-badge-circle">
+          <div class="score-num" id="scoreNum">5/5</div>
+          <div class="score-label" id="scoreLabel">Passed</div>
+        </div>
+
+        <div class="result-actions" id="resultActions">
+          <a href="variables.html" class="primary-action-btn" id="nextLessonBtn">
+            Continue to Chapter 2: Variables →
+          </a>
+          <a href="python.html" class="secondary-action-btn">
+            Return to Python Course Overview
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

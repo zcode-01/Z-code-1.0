@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,10 +22,7 @@
 
     <div class="search-box">
       <span>⌕</span>
-      <input
-        type="text"
-        placeholder="Search courses, topics, or anything..."
-      >
+      <input type="text" placeholder="Search courses, topics, or anything...">
       <kbd>⌘ K</kbd>
     </div>
 
@@ -50,9 +48,9 @@
 
       <nav>
         <a href="home.html">
-    <span>⌂</span>
-    Dashboard
-</a>
+          <span>⌂</span>
+          Dashboard
+        </a>
 
         <button onclick="window.location.href='python.html'"></button>
 
@@ -117,534 +115,10 @@
 
     </aside>
     <!-- MAIN CONTENT -->
-<main class="main-content">
-
-  <!-- PAGE HEADING -->
-  <div class="course-heading">
-    <div>
-      <div class="eyebrow">
-        LEARN · PYTHON
-      </div>
-
-      <h1>Python Programming</h1>
-
-      <p>
-        Master Python from the fundamentals to real-world programming.
-      </p>
-    </div>
-
-    <div class="python-badge">
-      <img src="assets/Python_logo.jpeg" alt="Python Logo">
-    </div>
-  </div>
-
-
-  <!-- COURSE PROGRESS -->
-  <section class="progress-card">
-
-    <div class="progress-top">
-      <div>
-        <span class="section-label">
-          COURSE PROGRESS
-        </span>
-
-        <h2>Keep going, Dhanush</h2>
-      </div>
-
-      <strong id="progressPercent">60%</strong>
-    </div>
-
-
-    <div class="progress-bar">
-      <span id="progressFill"></span>
-    </div>
-
-
-    <div class="progress-bottom">
-      <span id="completedText">
-        7 of 12 lessons completed
-      </span>
-
-      <span id="remainingText">
-        5 lessons remaining
-      </span>
-    </div>
-
-  </section>
-
-
-  <!-- LESSONS -->
-  <section class="lessons-section">
-
-    <div class="section-heading">
-      <div>
-        <span class="section-label">
-          YOUR COURSE
-        </span>
-
-        <h2>Python Fundamentals</h2>
-      </div>
-
-      <span class="lesson-count">
-        12 Lessons
-      </span>
-    </div>
-
-
-    <!-- LESSON 01 -->
-    <article class="lesson-card" id="lesson1">
-
-      <div class="lesson-number">
-        01
-      </div>
-
-      <div class="lesson-icon">
-        01
-      </div>
-
-      <div class="lesson-info">
-
-        <h3>Introduction to Python</h3>
-
-        <p>
-          Learn the basics of Python and write your first program.
-        </p>
-
-        <span class="lesson-meta" id="lesson1Status">
-          Complete the lesson and take the quiz
-        </span>
-
-      </div>
-
-      <button
-        class="continue-btn"
-        id="introQuizBtn"
-        onclick="openQuiz()">
-
-        Take Quiz →
-
-      </button>
-
-    </article>
-
-
-    <!-- LESSON 02 -->
-    <article
-      class="lesson-card locked-card"
-      id="lesson2">
-
-      <div class="lesson-number">
-        02
-      </div>
-
-      <div class="lesson-icon" id="lesson2Icon">
-        🔒
-      </div>
-
-      <div class="lesson-info">
-
-        <h3>Variables & Data Types</h3>
-
-        <p>
-          Understand strings, numbers, booleans and variables.
-        </p>
-
-        <span
-          class="lesson-meta"
-          id="lesson2Status">
-
-          Pass the Introduction quiz to unlock
-
-        </span>
-
-      </div>
-
-      <span
-        class="locked"
-        id="lesson2Button">
-
-        LOCKED 🔒
-
-      </span>
-
-    </article>
-
-
-    <!-- LESSON 03 -->
-    <article class="lesson-card locked-card">
-
-      <div class="lesson-number">
-        03
-      </div>
-
-      <div class="lesson-icon">
-        🔒
-      </div>
-
-      <div class="lesson-info">
-
-        <h3>Operators & Expressions</h3>
-
-        <p>
-          Learn arithmetic, comparison and logical operators.
-        </p>
-
-        <span class="lesson-meta">
-          Complete previous lesson to unlock
-        </span>
-
-      </div>
-
-      <span class="locked">
-        LOCKED 🔒
-      </span>
-
-    </article>
-
-
-    <!-- LESSON 04 -->
-    <article class="lesson-card locked-card">
-
-      <div class="lesson-number">
-        04
-      </div>
-
-      <div class="lesson-icon">
-        🔒
-      </div>
-
-      <div class="lesson-info">
-
-        <h3>Conditional Statements</h3>
-
-        <p>
-          Learn how to make decisions using if, elif and else.
-        </p>
-
-        <span class="lesson-meta">
-          Complete previous lesson to unlock
-        </span>
-
-      </div>
-
-      <span class="locked">
-        LOCKED 🔒
-      </span>
-
-    </article>
-
-
-    <!-- LESSON 05 -->
-    <article class="lesson-card locked-card">
-
-      <div class="lesson-number">
-        05
-      </div>
-
-      <div class="lesson-icon">
-        🔒
-      </div>
-
-      <div class="lesson-info">
-
-        <h3>Loops in Python</h3>
-
-        <p>
-          Master for loops, while loops and iteration.
-        </p>
-
-        <span class="lesson-meta">
-          Complete previous lesson to unlock
-        </span>
-
-      </div>
-
-      <span class="locked">
-        LOCKED 🔒
-      </span>
-
-    </article>
-
-  </section>
-
-
-  <!-- =========================
-       INTRODUCTION QUIZ
-  ========================== -->
-
-  <section
-    class="quiz-section"
-    id="quizSection"
-    style="display:none;">
-
-    <div class="quiz-card">
-
-      <div class="section-label">
-        INTRODUCTION TO PYTHON
-      </div>
-
-      <h2>Python Basics Quiz</h2>
-
-      <p class="quiz-description">
-        Answer the questions to unlock the next chapter.
-      </p>
-
-
-      <!-- QUESTION 1 -->
-      <div class="quiz-question">
-
-        <h3>
-          1. Which language are you learning in this course?
-        </h3>
-
-        <label>
-          <input
-            type="radio"
-            name="q1"
-            value="python">
-          Python
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="q1"
-            value="java">
-          Java
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="q1"
-            value="cpp">
-          C++
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="q1"
-            value="html">
-          HTML
-        </label>
-
-      </div>
-
-
-      <!-- QUESTION 2 -->
-      <div class="quiz-question">
-
-        <h3>
-          2. Which symbol is used to create a comment in Python?
-        </h3>
-
-        <label>
-          <input
-            type="radio"
-            name="q2"
-            value="#">
-          #
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="q2"
-            value="//">
-          //
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="q2"
-            value="/*">
-          /*
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="q2"
-            value="--">
-          --
-        </label>
-
-      </div>
-
-
-      <!-- QUESTION 3 -->
-      <div class="quiz-question">
-
-        <h3>
-          3. Which function displays output in Python?
-        </h3>
-
-        <label>
-          <input
-            type="radio"
-            name="q3"
-            value="print">
-          print()
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="q3"
-            value="display">
-          display()
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="q3"
-            value="show">
-          show()
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="q3"
-            value="output">
-          output()
-        </label>
-
-      </div>
-
-
-      <!-- QUESTION 4 -->
-      <div class="quiz-question">
-
-        <h3>
-          4. Which one is a valid Python variable name?
-        </h3>
-
-        <label>
-          <input
-            type="radio"
-            name="q4"
-            value="name">
-          name
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="q4"
-            value="2name">
-          2name
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="q4"
-            value="my-name">
-          my-name
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="q4"
-            value="class">
-          class
-        </label>
-
-      </div>
-
-
-      <!-- QUESTION 5 -->
-      <div class="quiz-question">
-
-        <h3>
-          5. What type of value is "Hello"?
-        </h3>
-
-        <label>
-          <input
-            type="radio"
-            name="q5"
-            value="string">
-          String
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="q5"
-            value="integer">
-          Integer
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="q5"
-            value="boolean">
-          Boolean
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="q5"
-            value="float">
-          Float
-        </label>
-
-      </div>
-
-
-      <button
-        class="quiz-submit"
-        onclick="submitQuiz()">
-
-        Submit Quiz →
-
-      </button>
-
-
-      <div
-        class="quiz-result"
-        id="quizResult">
-      </div>
-
-    </div>
-
-  </section>
-
-</main>
-
-
-
-    <!-- MAIN CONTENT -->
-    
-
-        <article class="lesson-card locked">
-            <div class="lesson-number">02</div>
-
-            <div class="lesson-info">
-                <h3>Variables & Data Types</h3>
-                <p>Learn variables, strings, numbers and more.</p>
-            </div>
-
-            <span class="locked-btn">
-                Locked 🔒
-            </span>
-        </article>
-
-    </section>
-
-</main>
+    <main class="main-content">
 
       <!-- PAGE HEADING -->
       <div class="course-heading">
-
         <div>
           <div class="eyebrow">
             LEARN · PYTHON
@@ -658,18 +132,15 @@
         </div>
 
         <div class="python-badge">
-            <img src="assets/Python_logo.jpeg" alt="Python Logo">
+          <img src="assets/Python_logo.jpeg" alt="Python Logo">
         </div>
-
       </div>
-
 
 
       <!-- COURSE PROGRESS -->
       <section class="progress-card">
 
         <div class="progress-top">
-
           <div>
             <span class="section-label">
               COURSE PROGRESS
@@ -678,33 +149,32 @@
             <h2>Keep going, Dhanush</h2>
           </div>
 
-          <strong>60%</strong>
-
+          <strong id="progressPercent">60%</strong>
         </div>
 
 
         <div class="progress-bar">
-          <span></span>
+          <span id="progressFill"></span>
         </div>
 
 
         <div class="progress-bottom">
+          <span id="completedText">
+            7 of 12 lessons completed
+          </span>
 
-          <span>7 of 12 lessons completed</span>
-
-          <span>5 lessons remaining</span>
-
+          <span id="remainingText">
+            5 lessons remaining
+          </span>
         </div>
 
       </section>
-
 
 
       <!-- LESSONS -->
       <section class="lessons-section">
 
         <div class="section-heading">
-
           <div>
             <span class="section-label">
               YOUR COURSE
@@ -716,20 +186,18 @@
           <span class="lesson-count">
             12 Lessons
           </span>
-
         </div>
 
 
-
         <!-- LESSON 01 -->
-        <article class="lesson-card completed">
+        <article class="lesson-card" id="lesson1">
 
           <div class="lesson-number">
             01
           </div>
 
           <div class="lesson-icon">
-            ✓
+            01
           </div>
 
           <div class="lesson-info">
@@ -740,29 +208,30 @@
               Learn the basics of Python and write your first program.
             </p>
 
-            <span class="lesson-meta">
-              ✓ Completed · 25 min
+            <span class="lesson-meta" id="lesson1Status">
+              Complete the lesson and take the quiz
             </span>
 
           </div>
 
-          <button class="review-btn">
-            Review →
+          <button class="continue-btn" id="introQuizBtn" onclick="openQuiz()">
+
+            Take Quiz →
+
           </button>
 
         </article>
 
 
-
         <!-- LESSON 02 -->
-        <article class="lesson-card completed">
+        <article class="lesson-card locked-card" id="lesson2">
 
           <div class="lesson-number">
             02
           </div>
 
-          <div class="lesson-icon">
-            ✓
+          <div class="lesson-icon" id="lesson2Icon">
+            🔒
           </div>
 
           <div class="lesson-info">
@@ -773,29 +242,32 @@
               Understand strings, numbers, booleans and variables.
             </p>
 
-            <span class="lesson-meta">
-              ✓ Completed · 35 min
+            <span class="lesson-meta" id="lesson2Status">
+
+              Pass the Introduction quiz to unlock
+
             </span>
 
           </div>
 
-          <button class="review-btn">
-            Review →
-          </button>
+          <span class="locked" id="lesson2Button">
+
+            LOCKED 🔒
+
+          </span>
 
         </article>
 
 
-
         <!-- LESSON 03 -->
-        <article class="lesson-card active-lesson">
+        <article class="lesson-card locked-card">
 
           <div class="lesson-number">
             03
           </div>
 
-          <div class="lesson-icon python-small">
-            <img src="assets/Python_logo.jpeg" alt="Python Logo">
+          <div class="lesson-icon">
+            🔒
           </div>
 
           <div class="lesson-info">
@@ -807,17 +279,16 @@
             </p>
 
             <span class="lesson-meta">
-              Current lesson · 40 min
+              Complete previous lesson to unlock
             </span>
 
           </div>
 
-          <button class="continue-btn">
-            Continue →
-          </button>
+          <span class="locked">
+            LOCKED 🔒
+          </span>
 
         </article>
-
 
 
         <!-- LESSON 04 -->
@@ -850,7 +321,6 @@
           </span>
 
         </article>
-
 
 
         <!-- LESSON 05 -->
@@ -886,6 +356,458 @@
 
       </section>
 
+
+      <!-- =========================
+       INTRODUCTION QUIZ
+  ========================== -->
+
+      <section class="quiz-section" id="quizSection" style="display:none;">
+
+        <div class="quiz-card">
+
+          <div class="section-label">
+            INTRODUCTION TO PYTHON
+          </div>
+
+          <h2>Python Basics Quiz</h2>
+
+          <p class="quiz-description">
+            Answer the questions to unlock the next chapter.
+          </p>
+
+
+          <!-- QUESTION 1 -->
+          <div class="quiz-question">
+
+            <h3>
+              1. Which language are you learning in this course?
+            </h3>
+
+            <label>
+              <input type="radio" name="q1" value="python">
+              Python
+            </label>
+
+            <label>
+              <input type="radio" name="q1" value="java">
+              Java
+            </label>
+
+            <label>
+              <input type="radio" name="q1" value="cpp">
+              C++
+            </label>
+
+            <label>
+              <input type="radio" name="q1" value="html">
+              HTML
+            </label>
+
+          </div>
+
+
+          <!-- QUESTION 2 -->
+          <div class="quiz-question">
+
+            <h3>
+              2. Which symbol is used to create a comment in Python?
+            </h3>
+
+            <label>
+              <input type="radio" name="q2" value="#">
+              #
+            </label>
+
+            <label>
+              <input type="radio" name="q2" value="//">
+              //
+            </label>
+
+            <label>
+              <input type="radio" name="q2" value="/*">
+              /*
+            </label>
+
+            <label>
+              <input type="radio" name="q2" value="--">
+              --
+            </label>
+
+          </div>
+
+
+          <!-- QUESTION 3 -->
+          <div class="quiz-question">
+
+            <h3>
+              3. Which function displays output in Python?
+            </h3>
+
+            <label>
+              <input type="radio" name="q3" value="print">
+              print()
+            </label>
+
+            <label>
+              <input type="radio" name="q3" value="display">
+              display()
+            </label>
+
+            <label>
+              <input type="radio" name="q3" value="show">
+              show()
+            </label>
+
+            <label>
+              <input type="radio" name="q3" value="output">
+              output()
+            </label>
+
+          </div>
+
+
+          <!-- QUESTION 4 -->
+          <div class="quiz-question">
+
+            <h3>
+              4. Which one is a valid Python variable name?
+            </h3>
+
+            <label>
+              <input type="radio" name="q4" value="name">
+              name
+            </label>
+
+            <label>
+              <input type="radio" name="q4" value="2name">
+              2name
+            </label>
+
+            <label>
+              <input type="radio" name="q4" value="my-name">
+              my-name
+            </label>
+
+            <label>
+              <input type="radio" name="q4" value="class">
+              class
+            </label>
+
+          </div>
+
+
+          <!-- QUESTION 5 -->
+          <div class="quiz-question">
+
+            <h3>
+              5. What type of value is "Hello"?
+            </h3>
+
+            <label>
+              <input type="radio" name="q5" value="string">
+              String
+            </label>
+
+            <label>
+              <input type="radio" name="q5" value="integer">
+              Integer
+            </label>
+
+            <label>
+              <input type="radio" name="q5" value="boolean">
+              Boolean
+            </label>
+
+            <label>
+              <input type="radio" name="q5" value="float">
+              Float
+            </label>
+
+          </div>
+
+
+          <button class="quiz-submit" onclick="submitQuiz()">
+
+            Submit Quiz →
+
+          </button>
+
+
+          <div class="quiz-result" id="quizResult">
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+
+    <!-- MAIN CONTENT -->
+
+
+    <article class="lesson-card locked">
+      <div class="lesson-number">02</div>
+
+      <div class="lesson-info">
+        <h3>Variables & Data Types</h3>
+        <p>Learn variables, strings, numbers and more.</p>
+      </div>
+
+      <span class="locked-btn">
+        Locked 🔒
+      </span>
+    </article>
+
+    </section>
+
+    </main>
+
+    <!-- PAGE HEADING -->
+    <div class="course-heading">
+
+      <div>
+        <div class="eyebrow">
+          LEARN · PYTHON
+        </div>
+
+        <h1>Python Programming</h1>
+
+        <p>
+          Master Python from the fundamentals to real-world programming.
+        </p>
+      </div>
+
+      <div class="python-badge">
+        <img src="assets/Python_logo.jpeg" alt="Python Logo">
+      </div>
+
+    </div>
+
+
+
+    <!-- COURSE PROGRESS -->
+    <section class="progress-card">
+
+      <div class="progress-top">
+
+        <div>
+          <span class="section-label">
+            COURSE PROGRESS
+          </span>
+
+          <h2>Keep going, Dhanush</h2>
+        </div>
+
+        <strong>60%</strong>
+
+      </div>
+
+
+      <div class="progress-bar">
+        <span></span>
+      </div>
+
+
+      <div class="progress-bottom">
+
+        <span>7 of 12 lessons completed</span>
+
+        <span>5 lessons remaining</span>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- LESSONS -->
+    <section class="lessons-section">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="section-label">
+            YOUR COURSE
+          </span>
+
+          <h2>Python Fundamentals</h2>
+        </div>
+
+        <span class="lesson-count">
+          12 Lessons
+        </span>
+
+      </div>
+
+
+
+      <!-- LESSON 01 -->
+      <article class="lesson-card completed">
+
+        <div class="lesson-number">
+          01
+        </div>
+
+        <div class="lesson-icon">
+          ✓
+        </div>
+
+        <div class="lesson-info">
+
+          <h3>Introduction to Python</h3>
+
+          <p>
+            Learn the basics of Python and write your first program.
+          </p>
+
+          <span class="lesson-meta">
+            ✓ Completed · 25 min
+          </span>
+
+        </div>
+
+        <button class="review-btn">
+          Review →
+        </button>
+
+      </article>
+
+
+
+      <!-- LESSON 02 -->
+      <article class="lesson-card completed">
+
+        <div class="lesson-number">
+          02
+        </div>
+
+        <div class="lesson-icon">
+          ✓
+        </div>
+
+        <div class="lesson-info">
+
+          <h3>Variables & Data Types</h3>
+
+          <p>
+            Understand strings, numbers, booleans and variables.
+          </p>
+
+          <span class="lesson-meta">
+            ✓ Completed · 35 min
+          </span>
+
+        </div>
+
+        <button class="review-btn">
+          Review →
+        </button>
+
+      </article>
+
+
+
+      <!-- LESSON 03 -->
+      <article class="lesson-card active-lesson">
+
+        <div class="lesson-number">
+          03
+        </div>
+
+        <div class="lesson-icon python-small">
+          <img src="assets/Python_logo.jpeg" alt="Python Logo">
+        </div>
+
+        <div class="lesson-info">
+
+          <h3>Operators & Expressions</h3>
+
+          <p>
+            Learn arithmetic, comparison and logical operators.
+          </p>
+
+          <span class="lesson-meta">
+            Current lesson · 40 min
+          </span>
+
+        </div>
+
+        <button class="continue-btn">
+          Continue →
+        </button>
+
+      </article>
+
+
+
+      <!-- LESSON 04 -->
+      <article class="lesson-card locked-card">
+
+        <div class="lesson-number">
+          04
+        </div>
+
+        <div class="lesson-icon">
+          🔒
+        </div>
+
+        <div class="lesson-info">
+
+          <h3>Conditional Statements</h3>
+
+          <p>
+            Learn how to make decisions using if, elif and else.
+          </p>
+
+          <span class="lesson-meta">
+            Complete previous lesson to unlock
+          </span>
+
+        </div>
+
+        <span class="locked">
+          LOCKED 🔒
+        </span>
+
+      </article>
+
+
+
+      <!-- LESSON 05 -->
+      <article class="lesson-card locked-card">
+
+        <div class="lesson-number">
+          05
+        </div>
+
+        <div class="lesson-icon">
+          🔒
+        </div>
+
+        <div class="lesson-info">
+
+          <h3>Loops in Python</h3>
+
+          <p>
+            Master for loops, while loops and iteration.
+          </p>
+
+          <span class="lesson-meta">
+            Complete previous lesson to unlock
+          </span>
+
+        </div>
+
+        <span class="locked">
+          LOCKED 🔒
+        </span>
+
+      </article>
+
+    </section>
+
     </main>
 
   </div>
@@ -893,15 +815,9 @@
 
 
   <!-- Z-CODE AI -->
-  <button
-    class="ai-fab"
-    id="aiFab"
-    title="Open Z-Code AI"
-  >
+  <button class="ai-fab" id="aiFab" title="Open Z-Code AI">
 
-    <img
-      src="assets/zcode-ai.jpeg"
-      alt="Z-Code AI">
+    <img src="assets/zcode-ai.jpeg" alt="Z-Code AI">
 
   </button>
 
@@ -936,10 +852,7 @@
 
     <form class="ai-input">
 
-      <input
-        type="text"
-        placeholder="Ask anything..."
-      >
+      <input type="text" placeholder="Ask anything...">
 
       <button>
         →
@@ -952,246 +865,256 @@
 
 
   <script>
-
     const aiFab = document.getElementById("aiFab");
     const aiChat = document.getElementById("aiChat");
     const closeAi = document.getElementById("closeAi");
+    const aiForm = document.getElementById("aiForm");
+    const aiInput = document.getElementById("aiInput");
+    const aiBody = document.getElementById("aiBody");
 
-    aiFab.addEventListener("click", () => {
-      aiChat.classList.add("show");
-    });
-
-    closeAi.addEventListener("click", () => {
-      aiChat.classList.remove("show");
-    });
-
-  </script>
-  <script>
-
-/* =========================
-   PYTHON COURSE QUIZ
-========================= */
-
-const quizSection = document.getElementById("quizSection");
-
-const lesson2 = document.getElementById("lesson2");
-const lesson2Icon = document.getElementById("lesson2Icon");
-const lesson2Status = document.getElementById("lesson2Status");
-const lesson2Button = document.getElementById("lesson2Button");
-
-const introQuizBtn = document.getElementById("introQuizBtn");
-const lesson1Status = document.getElementById("lesson1Status");
-
-const quizResult = document.getElementById("quizResult");
-
-
-/* =========================
-   CHECK SAVED PROGRESS
-========================= */
-
-let introductionPassed =
-  localStorage.getItem("pythonIntroductionPassed") === "true";
-
-
-/* =========================
-   OPEN QUIZ
-========================= */
-
-function openQuiz() {
-
-  quizSection.style.display = "block";
-
-  quizSection.scrollIntoView({
-    behavior: "smooth"
-  });
-
-}
-
-
-/* =========================
-   SUBMIT QUIZ
-========================= */
-
-function submitQuiz() {
-
-  const answers = {
-
-    q1: "python",
-    q2: "#",
-    q3: "print",
-    q4: "name",
-    q5: "string"
-
-  };
-
-
-  let score = 0;
-
-
-  for (const question in answers) {
-
-    const selected =
-      document.querySelector(
-        `input[name="${question}"]:checked`
-      );
-
-
-    if (selected && selected.value === answers[question]) {
-
-      score++;
-
+    if (aiFab && aiChat) {
+      aiFab.addEventListener("click", () => {
+        aiChat.classList.add("show");
+        if (aiInput) aiInput.focus();
+      });
     }
 
-  }
-
-
-  /* PASS = 4 OUT OF 5 */
-
-  if (score >= 4) {
-
-    introductionPassed = true;
-
-    localStorage.setItem(
-      "pythonIntroductionPassed",
-      "true"
-    );
-
-
-    quizResult.innerHTML =
-      `🎉 Great job! You scored ${score}/5.
-       <br>
-       Variables & Data Types is now unlocked!`;
-
-    quizResult.className =
-      "quiz-result quiz-passed";
-
-
-    unlockLesson2();
-
-
-  } else {
-
-    quizResult.innerHTML =
-      `You scored ${score}/5.
-       <br>
-       You need at least 4 correct answers to unlock
-       the next chapter.
-       <br><br>
-       Please try again.`;
-
-    quizResult.className =
-      "quiz-result quiz-failed";
-
-  }
-
-}
-
-
-/* =========================
-   UNLOCK LESSON 02
-========================= */
-
-function unlockLesson2() {
-
-  lesson2.classList.remove("locked-card");
-
-  lesson2.classList.add("unlocked-card");
-
-
-  lesson2Icon.innerHTML = "✓";
-
-
-  lesson2Status.innerHTML =
-    "✓ Unlocked · Ready to learn";
-
-
-  lesson2Button.innerHTML =
-    "Continue →";
-
-
-  lesson2Button.className =
-    "unlocked-btn";
-
-
-  lesson2Button.onclick = function() {
-
-    window.location.href = "variables.html";
-
-  };
-
-
-  introQuizBtn.innerHTML =
-    "Quiz Completed ✓";
-
-
-  introQuizBtn.disabled = true;
-
-
-  lesson1Status.innerHTML =
-    "✓ Introduction completed · Quiz passed";
-
-
-  updateProgress();
-
-}
-
-
-/* =========================
-   UPDATE PROGRESS
-========================= */
-
-function updateProgress() {
-
-  const progressPercent =
-    document.getElementById("progressPercent");
-
-  const progressFill =
-    document.getElementById("progressFill");
-
-  const completedText =
-    document.getElementById("completedText");
-
-  const remainingText =
-    document.getElementById("remainingText");
-
-
-  /*
-     Introduction + Quiz completed.
-     Change these numbers later if your
-     actual course has a different system.
-  */
-
-  const percent = 67;
-
-  progressPercent.innerHTML =
-    percent + "%";
-
-
-  progressFill.style.width =
-    percent + "%";
-
-
-  completedText.innerHTML =
-    "8 of 12 lessons completed";
-
-
-  remainingText.innerHTML =
-    "4 lessons remaining";
-
-}
-
-
-/* =========================
-   LOAD SAVED UNLOCK STATE
-========================= */
-
-if (introductionPassed) {
-
-  unlockLesson2();
-
-}
-
-</script>
+    if (closeAi && aiChat) {
+      closeAi.addEventListener("click", () => {
+        aiChat.classList.remove("show");
+      });
+    }
+
+    if (aiForm && aiInput && aiBody) {
+      aiForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const text = aiInput.value.trim();
+        if (!text) return;
+
+        const userMsg = document.createElement("div");
+        userMsg.className = "user-message";
+        userMsg.textContent = text;
+        aiBody.appendChild(userMsg);
+        aiInput.value = "";
+        aiBody.scrollTop = aiBody.scrollHeight;
+
+        const aiMsg = document.createElement("div");
+        aiMsg.className = "ai-message";
+        aiMsg.style.fontStyle = "italic";
+        aiMsg.textContent = "Z-Code AI is thinking...";
+        aiBody.appendChild(aiMsg);
+        aiBody.scrollTop = aiBody.scrollHeight;
+
+        try {
+          if (window.ZCodeAuth && !ZCodeAuth.isLoggedIn()) {
+            await ZCodeAPI.login("dhanush@zcode.dev", "demo123");
+          }
+          const res = await ZCodeAPI.sendChatMessage(text);
+          aiMsg.style.fontStyle = "normal";
+          aiMsg.textContent = res.reply;
+        } catch (err) {
+          aiMsg.style.fontStyle = "normal";
+          aiMsg.textContent = `Tutor: ${err.message || "Failed to contact AI service"}`;
+        }
+        aiBody.scrollTop = aiBody.scrollHeight;
+      });
+    }
+  </script>
+  <script src="js/api.js"></script>
+  <script>
+
+    /* =========================
+       PYTHON COURSE QUIZ
+    ========================= */
+
+    const quizSection = document.getElementById("quizSection");
+
+    const lesson2 = document.getElementById("lesson2");
+    const lesson2Icon = document.getElementById("lesson2Icon");
+    const lesson2Status = document.getElementById("lesson2Status");
+    const lesson2Button = document.getElementById("lesson2Button");
+
+    const introQuizBtn = document.getElementById("introQuizBtn");
+    const lesson1Status = document.getElementById("lesson1Status");
+
+    const quizResult = document.getElementById("quizResult");
+
+
+    // Remove stale global key that leaked progress across accounts
+    localStorage.removeItem("pythonIntroductionPassed");
+
+
+    /* =========================
+       OPEN QUIZ (Opens Dedicated Interface)
+    ========================= */
+
+    function openQuiz() {
+      window.location.href = "quiz.html";
+    }
+
+
+    /* =========================
+       SUBMIT QUIZ (Connected to Backend)
+    ========================= */
+
+    async function submitQuiz() {
+      // 1. Check if user is logged in
+      if (!window.ZCodeAuth || !ZCodeAuth.isLoggedIn()) {
+        const loginNow = confirm("You are not logged in yet!\n\nClick OK to automatically log in as Demo User (dhanush@zcode.dev) and submit your quiz, or Cancel to go to the login page.");
+        if (loginNow) {
+          try {
+            await ZCodeAPI.login("dhanush@zcode.dev", "demo123");
+          } catch (e) {
+            alert("Could not reach backend at http://localhost:8000. Please ensure ./start.sh is running!");
+            return;
+          }
+        } else {
+          window.location.href = "login.html";
+          return;
+        }
+      }
+
+      // 2. Gather selected answers for questions 1 to 5
+      const optionLetters = ["a", "b", "c", "d"];
+      const answers = [];
+
+      for (let i = 1; i <= 5; i++) {
+        const inputs = Array.from(document.querySelectorAll(`input[name="q${i}"]`));
+        const selectedIndex = inputs.findIndex(input => input.checked);
+
+        if (selectedIndex === -1) {
+          alert(`Please answer question ${i} before submitting!`);
+          return;
+        }
+
+        answers.push({
+          question_id: i,
+          answer: optionLetters[selectedIndex]
+        });
+      }
+
+      // 3. Submit answers to the backend API (Quiz ID = 1 for Introduction to Python)
+      try {
+        quizResult.innerHTML = "Submitting answers to server...";
+
+        const result = await ZCodeAPI.submitQuiz(1, answers);
+
+        if (result.passed) {
+          const userId = window.ZCodeAuth ? ZCodeAuth.getUserId() : null;
+          if (userId) {
+            localStorage.setItem(`zcode_quiz_1_passed_${userId}`, "true");
+          }
+          localStorage.removeItem("pythonIntroductionPassed");
+          quizResult.className = "quiz-result quiz-passed";
+          quizResult.innerHTML = `${result.message} <br><strong>+${result.xp_earned} XP earned!</strong>`;
+          unlockLesson2();
+        } else {
+          quizResult.className = "quiz-result quiz-failed";
+          quizResult.innerHTML = `${result.message}`;
+        }
+      } catch (err) {
+        quizResult.className = "quiz-result quiz-failed";
+        quizResult.innerHTML = `Error: ${err.message}`;
+      }
+    }
+
+
+    /* =========================
+       PER-USER UNLOCK & PROGRESS
+    ========================= */
+
+    function unlockLesson2() {
+      lesson2.classList.remove("locked-card");
+      lesson2.classList.add("unlocked-card");
+      lesson2Icon.innerHTML = "✓";
+      lesson2Status.innerHTML = "✓ Unlocked · Ready to learn";
+      lesson2Button.innerHTML = "Continue →";
+      lesson2Button.className = "unlocked-btn";
+      lesson2Button.onclick = function () {
+        window.location.href = "variables.html";
+      };
+      introQuizBtn.innerHTML = "Quiz Completed ✓";
+      introQuizBtn.disabled = true;
+      lesson1Status.innerHTML = "✓ Introduction completed · Quiz passed";
+      updateProgress(true);
+    }
+
+    function lockLesson2() {
+      lesson2.classList.remove("unlocked-card");
+      lesson2.classList.add("locked-card");
+      lesson2Icon.innerHTML = "🔒";
+      lesson2Status.innerHTML = "Pass the Introduction quiz to unlock";
+      lesson2Button.innerHTML = "Locked";
+      lesson2Button.className = "locked-btn";
+      lesson2Button.onclick = null;
+      introQuizBtn.innerHTML = "Take Quiz →";
+      introQuizBtn.disabled = false;
+      lesson1Status.innerHTML = "Complete the lesson and take the quiz";
+      updateProgress(false);
+    }
+
+    function updateProgress(isUnlocked) {
+      const progressPercent = document.getElementById("progressPercent");
+      const progressFill = document.getElementById("progressFill");
+      const completedText = document.getElementById("completedText");
+      const remainingText = document.getElementById("remainingText");
+
+      if (isUnlocked) {
+        if (progressPercent) progressPercent.innerHTML = "67%";
+        if (progressFill) progressFill.style.width = "67%";
+        if (completedText) completedText.innerHTML = "8 of 12 lessons completed";
+        if (remainingText) remainingText.innerHTML = "4 lessons remaining";
+      } else {
+        if (progressPercent) progressPercent.innerHTML = "0%";
+        if (progressFill) progressFill.style.width = "0%";
+        if (completedText) completedText.innerHTML = "0 of 12 lessons completed";
+        if (remainingText) remainingText.innerHTML = "12 lessons remaining";
+      }
+    }
+
+    /* =========================
+       SYNC PROGRESS WITH BACKEND
+    ========================= */
+
+    async function syncProgressWithBackend() {
+      // If user is not logged in, Lesson 2 must always be locked
+      if (!window.ZCodeAuth || !ZCodeAuth.isLoggedIn()) {
+        lockLesson2();
+        return;
+      }
+
+      try {
+        // Query backend for this specific user's quiz attempts
+        const history = await ZCodeAPI.getQuizHistory();
+        const hasPassed = Array.isArray(history) && history.some(a => a.quiz_id === 1 && a.passed);
+
+        const userId = ZCodeAuth.getUserId();
+        if (hasPassed) {
+          if (userId) localStorage.setItem(`zcode_quiz_1_passed_${userId}`, "true");
+          unlockLesson2();
+        } else {
+          // Check per-user local storage key (never global)
+          if (userId && localStorage.getItem(`zcode_quiz_1_passed_${userId}`) === "true") {
+            unlockLesson2();
+          } else {
+            lockLesson2();
+          }
+        }
+      } catch (err) {
+        const userId = window.ZCodeAuth ? ZCodeAuth.getUserId() : null;
+        if (userId && localStorage.getItem(`zcode_quiz_1_passed_${userId}`) === "true") {
+          unlockLesson2();
+        } else {
+          lockLesson2();
+        }
+      }
+    }
+
+    // Always synchronize progress for the currently active account
+    syncProgressWithBackend();
+
+  </script>
 
 </body>
+
 </html>

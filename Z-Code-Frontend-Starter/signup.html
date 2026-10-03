@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Z-Code — Login</title>
+  <title>Z-Code — Sign Up</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/login.css">
 </head>
@@ -13,33 +13,33 @@
       <img src="assets/zcode-logo.jpeg" alt="Z-Code logo" onerror="this.style.display='none'">
     </a>
     <div class="signup-prompt">
-      <span>Don't have an account?</span>
-      <a href="signup.html" id="signupLink">Sign Up</a>
+      <span>Already have an account?</span>
+      <a href="login.html" id="loginLink">Log In</a>
     </div>
   </header>
 
   <main class="login-shell">
     <section class="hero-copy">
       <div class="eyebrow"><span></span> LEARN &nbsp;/&nbsp; BUILD &nbsp;/&nbsp; GROW</div>
-      <h1>Your Journey<br>to <em>Better Skills</em></h1>
-      <p>Master what matters. Learn at your own pace, build real projects, and create the future you want.</p>
+      <h1>Start Your Journey<br>to <em>Mastering Code</em></h1>
+      <p>Join the next generation of software engineers. Learn Python step by step, solve interactive quizzes, and earn verifiable XP badges.</p>
 
       <div class="feature-row">
         <div class="feature">
           <div class="feature-icon">&lt;/&gt;</div>
-          <span>Structured<br>Courses</span>
+          <span>Hands-on<br>Practice</span>
         </div>
         <div class="feature">
-          <div class="feature-icon">▶</div>
-          <span>Interactive<br>Learning</span>
+          <div class="feature-icon">★</div>
+          <span>XP & Level<br>System</span>
         </div>
         <div class="feature">
-          <div class="feature-icon">⌁</div>
-          <span>Real-World<br>Projects</span>
+          <div class="feature-icon">🤖</div>
+          <span>AI Tutor<br>Assistance</span>
         </div>
         <div class="feature">
           <div class="feature-icon">♧</div>
-          <span>Active<br>Community</span>
+          <span>100% Free<br>Forever</span>
         </div>
       </div>
     </section>
@@ -48,41 +48,41 @@
       <div class="card-logo">
         <img src="assets/zcode-logo.jpeg" alt="Z-Code" onerror="this.style.display='none'">
       </div>
-      <h2>Welcome Back</h2>
-      <p class="muted">Log in to continue your learning journey</p>
+      <h2>Create Account</h2>
+      <p class="muted">Get started free — start learning Python in seconds</p>
 
-      <form id="loginForm">
+      <form id="signupForm">
+        <label class="input-wrap">
+          <span class="input-icon">👤</span>
+          <input type="text" id="name" placeholder="Full name" required autocomplete="name">
+        </label>
+
         <label class="input-wrap">
           <span class="input-icon">✉</span>
-          <input type="email" id="email" placeholder="Email address" value="dhanush@zcode.dev" required>
+          <input type="email" id="email" placeholder="Email address" required autocomplete="email">
         </label>
 
         <label class="input-wrap">
           <span class="input-icon">♙</span>
-          <input type="password" id="password" placeholder="Password" value="demo123" required>
+          <input type="password" id="password" placeholder="Password (at least 6 characters)" required minlength="6" autocomplete="new-password">
           <button class="eye-btn" type="button" id="togglePassword" aria-label="Show password">◉</button>
         </label>
 
-        <div class="login-options">
-          <label class="remember"><input type="checkbox" checked> <span>Remember me</span></label>
-          <a href="#" id="forgotLink">Forgot password?</a>
-        </div>
-
-        <button class="primary-btn" type="submit">Log In <span>→</span></button>
+        <button class="primary-btn" type="submit" id="submitBtn">Create Account <span>→</span></button>
       </form>
 
       <div class="or"><span></span>OR<span></span></div>
 
-      <button class="google-btn" id="googleBtn">
+      <button class="google-btn" id="demoBtn">
         <span class="google-g">G</span>
-        Continue with Demo User
+        Sign in with Demo User
       </button>
 
-      <p class="demo-note" id="loginMessage"></p>
+      <p class="demo-note" id="signupMessage"></p>
     </section>
   </main>
 
   <script src="js/api.js"></script>
-  <script src="js/login.js"></script>
+  <script src="js/signup.js"></script>
 </body>
 </html>

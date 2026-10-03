@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/home.css">
 </head>
+
 <body class="dashboard-page">
   <header class="topbar">
     <a class="brand top-brand" href="home.html">
@@ -20,12 +22,42 @@
     </div>
 
     <div class="top-actions">
-      <button class="icon-btn" title="Notifications">♧<i></i></button>
+      <button class="icon-btn" id="notifBtn" title="Notifications">♧<i></i></button>
       <button class="theme-btn" id="themeToggle" title="Toggle theme">☼</button>
-      <div class="profile-mini">
-        <div class="avatar">D</div>
-        <span>Dhanush</span>
+      <div class="profile-mini" id="profileMiniBtn" style="cursor:pointer;" title="Click for profile & logout">
+        <div class="avatar" id="topAvatar">D</div>
+        <span id="topUserName">Dhanush</span>
         <span>⌄</span>
+      </div>
+
+      <!-- Profile Dropdown -->
+      <div class="profile-dropdown" id="profileDropdown">
+        <div class="dropdown-user-info">
+          <div class="avatar" id="dropAvatar">D</div>
+          <div>
+            <strong id="dropName">Dhanush</strong>
+            <small id="dropEmail">dhanush@zcode.dev</small>
+          </div>
+        </div>
+        <button class="dropdown-item" id="dropProfileBtn">👤 View Profile & XP</button>
+        <button class="dropdown-item" id="dropSettingsBtn">⚙ Account Settings</button>
+        <button class="dropdown-item logout-item" id="logoutBtn">🚪 Log Out</button>
+      </div>
+
+      <!-- Notifications Popover -->
+      <div class="notif-popover" id="notifPopover">
+        <div class="notif-header">
+          <span>Notifications</span>
+          <span style="font-size:11px;color:#dcb56b;">Mark all read</span>
+        </div>
+        <div class="notif-item">
+          <span class="notif-icon">⚡</span>
+          <div><strong>+100 XP Awarded!</strong><br><small style="color:#888;">You passed the Python Basics Quiz.</small></div>
+        </div>
+        <div class="notif-item">
+          <span class="notif-icon">🔥</span>
+          <div><strong>5-Day Streak Active</strong><br><small style="color:#888;">Keep coding today to protect your streak!</small></div>
+        </div>
       </div>
     </div>
   </header>
@@ -33,17 +65,17 @@
   <aside class="sidebar">
     <nav>
       <a class="active" href="home.html"><span>⌂</span>Dashboard</a>
-      <a href="#"><span>▣</span>Learn</a>
-      <a href="#"><span>&lt;/&gt;</span>Projects</a>
-      <a href="#"><span>▷</span>Practice</a>
-      <a href="#"><span>♧</span>Certificates</a>
-      <a href="#"><span>♧</span>Community</a>
-      <a href="#"><span>▱</span>Resources</a>
-      <a href="#"><span>♙</span>Profile</a>
+      <a href="python.html"><span>▣</span>Learn</a>
+      <a href="#" id="sideProjects"><span>&lt;/&gt;</span>Projects</a>
+      <a href="quiz.html"><span>▷</span>Practice</a>
+      <a href="#" id="sideCerts"><span>♧</span>Certificates</a>
+      <a href="#" id="sideCommunity"><span>♧</span>Community</a>
+      <a href="#" id="sideResources"><span>▱</span>Resources</a>
+      <a href="#" id="sideProfile"><span>♙</span>Profile</a>
     </nav>
 
     <div class="sidebar-bottom">
-      <a href="#"><span>⚙</span>Settings</a>
+      <a href="#" id="sideSettings"><span>⚙</span>Settings</a>
       <div class="sidebar-slogan">✦<br><small>Better Skills<br>· Bigger Dreams</small></div>
       <div class="sidebar-z">Z</div>
     </div>
@@ -78,11 +110,16 @@
       </article>
 
       <article class="continue-card panel">
-        <div class="panel-heading"><span>▣</span><div><h2>Continue Learning</h2><p>Pick up where you left off</p></div></div>
+        <div class="panel-heading"><span>▣</span>
+          <div>
+            <h2>Continue Learning</h2>
+            <p>Pick up where you left off</p>
+          </div>
+        </div>
         <div class="course-mini">
           <div class="course-icon continue-logo">
-    <img src="assets/Python_logo.jpeg" alt="Python Programming">
-</div>
+            <img src="assets/Python_logo.jpeg" alt="Python Programming">
+          </div>
           <div><strong>Python for Beginners</strong><span>Chapter 4: Functions</span></div>
         </div>
         <div class="progress"><span style="width:60%"></span></div>
@@ -90,10 +127,16 @@
       </article>
 
       <article class="league-card panel">
-        <div class="panel-heading"><span>♨</span><div><h2>Weekly League</h2><p>You're doing great! Keep going!</p></div><div class="badge">✦</div></div>
+        <div class="panel-heading"><span>♨</span>
+          <div>
+            <h2>Weekly League</h2>
+            <p>You're doing great! Keep going!</p>
+          </div>
+          <div class="badge">✦</div>
+        </div>
         <div class="league-progress"><span></span></div>
         <div class="league-score">50/50 XP ✓</div>
-        <button class="wide-btn">View Leaderboard →</button>
+        <button class="wide-btn" id="leagueBtn">View Leaderboard →</button>
       </article>
     </section>
 
@@ -102,46 +145,66 @@
         <span class="pill">FEATURED</span>
         <h2>Build Real Projects</h2>
         <p>Turn your knowledge into something amazing.</p>
-        <button>Explore Projects →</button>
+        <button id="featuredProjectsBtn">Explore Projects →</button>
       </div>
       <div class="featured-art">⌨<br><span>&lt;/&gt;</span></div>
       <div class="featured-list">
-        <div><b>♧</b><span><strong>Real World Projects</strong><small>Build and showcase your skills</small></span></div>
+        <div><b>♧</b><span><strong>Real World Projects</strong><small>Build and showcase your skills</small></span>
+        </div>
         <div><b>✥</b><span><strong>Expert Guidance</strong><small>Learn from industry experts</small></span></div>
-        <div><b>♙</b><span><strong>Certificate of Completion</strong><small>Showcase your achievements</small></span></div>
+        <div><b>♙</b><span><strong>Certificate of Completion</strong><small>Showcase your achievements</small></span>
+        </div>
       </div>
     </section>
 
     <section class="learning-section">
-      <div class="section-title"><h2>◔ &nbsp;My Learning</h2><a href="#">View All →</a></div>
+      <div class="section-title">
+        <h2>◔ &nbsp;My Learning</h2><a href="python.html" id="viewAllCoursesBtn">View All →</a>
+      </div>
       <div class="course-grid">
         <a href="python.html" class="learning-card">
-  <div class="course-icon continue-logo">
-    <img src="assets/Python_logo.jpeg" alt="Python Programming">
-</div>
+          <div class="course-icon continue-logo">
+            <img src="assets/Python_logo.jpeg" alt="Python Programming">
+          </div>
 
-  <div>
-    <strong>Python Programming</strong>
-    <small>Beginner · 12h</small>
-  </div>
+          <div>
+            <strong>Python Programming</strong>
+            <small>Beginner · 12h</small>
+          </div>
 
-  <div class="progress">
-    <span style="width:60%"></span>
-  </div>
+          <div class="progress">
+            <span style="width:60%"></span>
+          </div>
 
-  <span class="percent">60%</span>
+          <span class="percent">60%</span>
 
-  <span class="course-arrow">›</span>
-</a>
+          <span class="course-arrow">›</span>
+        </a>
       </div>
     </section>
   </main>
 
-  <button class="ai-fab" id="aiFab" title="Open Z-Code AI" ><img src="assets/zcode-ai.jpeg" alt="Z-Code AI"></button>
+  <!-- Reusable Interactive Modal -->
+  <div class="z-modal-backdrop" id="zModalBackdrop">
+    <div class="z-modal" id="zModal">
+      <div class="z-modal-header">
+        <h3 id="modalTitle">Modal Title</h3>
+        <button class="z-modal-close" id="modalCloseBtn">&times;</button>
+      </div>
+      <div class="z-modal-body" id="modalBody">
+        <!-- Content injected by home.js -->
+      </div>
+    </div>
+  </div>
+
+  <button class="ai-fab" id="aiFab" title="Open Z-Code AI"><img src="assets/zcode-ai.jpeg" alt="Z-Code AI"></button>
   <section class="ai-chat" id="aiChat" aria-hidden="true">
-    <div class="ai-header"><div><b>Z-Code AI</b><small>Your coding tutor</small></div><button id="closeAi">×</button></div>
+    <div class="ai-header">
+      <div><b>Z-Code AI</b><small>Your coding tutor</small></div><button id="closeAi">×</button>
+    </div>
     <div class="ai-body" id="aiBody">
-      <div class="ai-message">Hi! I'm your Z-Code tutor. Ask me about Python, a lesson, or an error you're stuck on.</div>
+      <div class="ai-message">Hi! I'm your Z-Code tutor. Ask me about Python, a lesson, or an error you're stuck on.
+      </div>
     </div>
     <form class="ai-input" id="aiForm">
       <input id="aiInput" placeholder="Ask anything..." autocomplete="off">
@@ -149,6 +212,8 @@
     </form>
   </section>
 
+  <script src="js/api.js"></script>
   <script src="js/home.js"></script>
 </body>
+
 </html>
