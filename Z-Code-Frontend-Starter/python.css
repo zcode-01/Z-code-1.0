@@ -1110,3 +1110,161 @@ body {
     padding: 5px !important;
     display: block !important;
 }
+/* =========================
+   PYTHON QUIZ
+========================= */
+
+.quiz-section {
+  margin-top: 35px;
+  margin-bottom: 50px;
+}
+
+.quiz-card {
+  padding: 30px;
+  border-radius: 14px;
+
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(177,132,43,.09),
+      transparent 40%
+    ),
+    #0a0c0c;
+
+  border: 1px solid #393328;
+}
+
+.quiz-card h2 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+
+  font-size: 24px;
+  color: #f5f1e8;
+}
+
+.quiz-description {
+  color: #777;
+  font-size: 12px;
+  margin-bottom: 28px;
+}
+
+.quiz-question {
+  padding: 20px;
+  margin-bottom: 15px;
+
+  border: 1px solid #29271f;
+  border-radius: 10px;
+
+  background: #0d0f0f;
+}
+
+.quiz-question h3 {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #eee;
+}
+
+.quiz-question label {
+  display: block;
+
+  padding: 10px 12px;
+  margin-top: 7px;
+
+  border: 1px solid #29271f;
+  border-radius: 7px;
+
+  color: #aaa;
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.quiz-question label:hover {
+  border-color: #665333;
+  color: #f3d484;
+}
+
+.quiz-question input {
+  margin-right: 8px;
+}
+
+.quiz-submit {
+  margin-top: 10px;
+
+  padding: 12px 22px;
+
+  border: none;
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5d990,
+      #bd913e
+    );
+
+  color: #19150d;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.quiz-result {
+  margin-top: 18px;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.quiz-passed {
+  color: #d9efb0;
+}
+
+.quiz-failed {
+  color: #e0a7a7;
+}
+
+
+/* UNLOCKED LESSON */
+
+.lesson-card.unlocked-card {
+  opacity: 1;
+
+  border-color: #75603b;
+
+  background:
+    radial-gradient(
+      circle at 100% 50%,
+      rgba(188,143,48,.08),
+      transparent 35%
+    ),
+    #0d0f0f;
+
+  box-shadow:
+    inset 3px 0 0 #d0a954;
+}
+
+.unlocked-btn {
+  padding: 10px 17px;
+
+  border-radius: 7px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f5d990,
+      #bd913e
+    );
+
+  color: #19150d;
+
+  font-size: 11px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  border: none;
+}
