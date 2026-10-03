@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Z-Code — Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body class="dashboard-page">
+  <header class="topbar">
+    <a class="brand top-brand" href="home.html">
+      <img src="assets/zcode-logo.jpeg" alt="Z-Code logo" onerror="this.style.display='none'">
+    </a>
+
+    <div class="search-box">
+      <span>⌕</span>
+      <input type="search" placeholder="Search courses, topics, or anything...">
+      <kbd>⌘ K</kbd>
+    </div>
+
+    <div class="top-actions">
+      <button class="icon-btn" title="Notifications">♧<i></i></button>
+      <button class="theme-btn" id="themeToggle" title="Toggle theme">☼</button>
+      <div class="profile-mini">
+        <div class="avatar">D</div>
+        <span>Dhanush</span>
+        <span>⌄</span>
+      </div>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <nav>
+      <a class="active" href="home.html"><span>⌂</span>Dashboard</a>
+      <a href="#"><span>▣</span>Learn</a>
+      <a href="#"><span>&lt;/&gt;</span>Projects</a>
+      <a href="#"><span>▷</span>Practice</a>
+      <a href="#"><span>♧</span>Certificates</a>
+      <a href="#"><span>♧</span>Community</a>
+      <a href="#"><span>▱</span>Resources</a>
+      <a href="#"><span>♙</span>Profile</a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <a href="#"><span>⚙</span>Settings</a>
+      <div class="sidebar-slogan">✦<br><small>Better Skills<br>· Bigger Dreams</small></div>
+      <div class="sidebar-z">Z</div>
+    </div>
+  </aside>
+
+  <main class="dashboard">
+    <section class="welcome-row">
+      <div>
+        <p class="greeting">Good Morning,</p>
+        <h1>Dhanush <span class="crown">♔</span></h1>
+        <p class="subtext">Small steps every day lead to big results.</p>
+      </div>
+
+      <div class="stats">
+        <div><b>⚡</b><small>Total XP</small><strong>1,260 <i>+120</i></strong></div>
+        <div><b>▣</b><small>Lessons Completed</small><strong>12 <i>+3</i></strong></div>
+        <div><b>&lt;/&gt;</b><small>Exercises Done</small><strong>45 <i>+8</i></strong></div>
+        <div><b>♨</b><small>Current Streak</small><strong>5 days <i>+2</i></strong></div>
+      </div>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="level-card panel">
+        <div class="level-orb">Z</div>
+        <div class="level-copy">
+          <span>Level 3</span>
+          <strong>Rising Learner</strong>
+        </div>
+        <span class="arrow">›</span>
+        <div class="progress"><span style="width:63%"></span></div>
+        <small>1,260 / 2,000 XP</small>
+      </article>
+
+      <article class="continue-card panel">
+        <div class="panel-heading"><span>▣</span><div><h2>Continue Learning</h2><p>Pick up where you left off</p></div></div>
+        <div class="course-mini">
+          <div class="course-icon continue-logo">
+    <img src="assets/Python_logo.jpeg" alt="Python Programming">
+</div>
+          <div><strong>Python for Beginners</strong><span>Chapter 4: Functions</span></div>
+        </div>
+        <div class="progress"><span style="width:60%"></span></div>
+        <div class="course-footer"><span>60%</span><button onclick="continueLearning()">Continue →</button></div>
+      </article>
+
+      <article class="league-card panel">
+        <div class="panel-heading"><span>♨</span><div><h2>Weekly League</h2><p>You're doing great! Keep going!</p></div><div class="badge">✦</div></div>
+        <div class="league-progress"><span></span></div>
+        <div class="league-score">50/50 XP ✓</div>
+        <button class="wide-btn">View Leaderboard →</button>
+      </article>
+    </section>
+
+    <section class="featured panel">
+      <div class="featured-copy">
+        <span class="pill">FEATURED</span>
+        <h2>Build Real Projects</h2>
+        <p>Turn your knowledge into something amazing.</p>
+        <button>Explore Projects →</button>
+      </div>
+      <div class="featured-art">⌨<br><span>&lt;/&gt;</span></div>
+      <div class="featured-list">
+        <div><b>♧</b><span><strong>Real World Projects</strong><small>Build and showcase your skills</small></span></div>
+        <div><b>✥</b><span><strong>Expert Guidance</strong><small>Learn from industry experts</small></span></div>
+        <div><b>♙</b><span><strong>Certificate of Completion</strong><small>Showcase your achievements</small></span></div>
+      </div>
+    </section>
+
+    <section class="learning-section">
+      <div class="section-title"><h2>◔ &nbsp;My Learning</h2><a href="#">View All →</a></div>
+      <div class="course-grid">
+        <a href="python.html" class="learning-card">
+  <div class="course-icon continue-logo">
+    <img src="assets/Python_logo.jpeg" alt="Python Programming">
+</div>
+
+  <div>
+    <strong>Python Programming</strong>
+    <small>Beginner · 12h</small>
+  </div>
+
+  <div class="progress">
+    <span style="width:60%"></span>
+  </div>
+
+  <span class="percent">60%</span>
+
+  <span class="course-arrow">›</span>
+</a>
+      </div>
+    </section>
+  </main>
+
+  <button class="ai-fab" id="aiFab" title="Open Z-Code AI" ><img src="assets/zcode-ai.jpeg" alt="Z-Code AI"></button>
+  <section class="ai-chat" id="aiChat" aria-hidden="true">
+    <div class="ai-header"><div><b>Z-Code AI</b><small>Your coding tutor</small></div><button id="closeAi">×</button></div>
+    <div class="ai-body" id="aiBody">
+      <div class="ai-message">Hi! I'm your Z-Code tutor. Ask me about Python, a lesson, or an error you're stuck on.</div>
+    </div>
+    <form class="ai-input" id="aiForm">
+      <input id="aiInput" placeholder="Ask anything..." autocomplete="off">
+      <button>→</button>
+    </form>
+  </section>
+
+  <script src="js/home.js"></script>
+</body>
+</html>

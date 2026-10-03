@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Z-Code — Login</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-page">
+  <header class="login-topbar">
+    <a class="brand" href="login.html">
+      <img src="assets/zcode-logo.jpeg" alt="Z-Code logo" onerror="this.style.display='none'">
+    </a>
+    <div class="signup-prompt">
+      <span>Don't have an account?</span>
+      <a href="#" id="signupLink">Sign Up</a>
+    </div>
+  </header>
+
+  <main class="login-shell">
+    <section class="hero-copy">
+      <div class="eyebrow"><span></span> LEARN &nbsp;/&nbsp; BUILD &nbsp;/&nbsp; GROW</div>
+      <h1>Your Journey<br>to <em>Better Skills</em></h1>
+      <p>Master what matters. Learn at your own pace, build real projects, and create the future you want.</p>
+
+      <div class="feature-row">
+        <div class="feature">
+          <div class="feature-icon">&lt;/&gt;</div>
+          <span>Structured<br>Courses</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">▶</div>
+          <span>Interactive<br>Learning</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⌁</div>
+          <span>Real-World<br>Projects</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">♧</div>
+          <span>Active<br>Community</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="login-card">
+      <div class="card-logo">
+        <img src="assets/zcode-logo.jpeg" alt="Z-Code" onerror="this.style.display='none'">
+      </div>
+      <h2>Welcome Back</h2>
+      <p class="muted">Log in to continue your learning journey</p>
+
+      <form id="loginForm">
+        <label class="input-wrap">
+          <span class="input-icon">✉</span>
+          <input type="email" id="email" placeholder="Email address" required>
+        </label>
+
+        <label class="input-wrap">
+          <span class="input-icon">♙</span>
+          <input type="password" id="password" placeholder="Password" required>9
+          <button class="eye-btn" type="button" id="togglePassword" aria-label="Show password">◉</button>
+        </label>
+
+        <div class="login-options">
+          <label class="remember"><input type="checkbox"> <span>Remember me</span></label>
+          <a href="#" id="forgotLink">Forgot password?</a>
+        </div>
+
+        <button class="primary-btn" type="submit">Log In <span>→</span></button>
+      </form>
+
+      <div class="or"><span></span>OR<span></span></div>
+
+      <button class="google-btn" id="googleBtn">
+        <span class="google-g">G</span>
+        Continue with Google
+      </button>
+
+      <p class="demo-note" id="loginMessage"></p>
+    </section>
+  </main>
+
+  <script src="js/login.js"></script>
+</body>
+</html>
