@@ -37,4 +37,4 @@ echo "   API:       http://localhost:8000/api"
 echo "   Swagger:   http://localhost:8000/api/docs"
 echo "   Press Ctrl+C to stop"
 echo ""
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
