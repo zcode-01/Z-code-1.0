@@ -4,6 +4,8 @@ venv/
 .venv/
 env/
 __pycache__/
+*.db
+.env
 *.py[cod]
 *$py.class
 *.so
