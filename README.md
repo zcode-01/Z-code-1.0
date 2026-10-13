@@ -60,3 +60,12 @@ Right-click `Z-Code-Frontend-Starter/login.html` and click **"Open with Live Ser
   - `python.html` — Python course curriculum with interactive quiz linked to backend XP.
   - `js/api.js` — Client library to interact with backend endpoints.
 
+---
+
+## 🌐 Production Deployment (Vercel + Render)
+
+- **Frontend**: Deployed to **Vercel** with automatic route handling and API proxying via [`vercel.json`](vercel.json).
+- **Backend**: Deployed to **Render** with persistent SQLite database via [`render.yaml`](render.yaml).
+
+For step-by-step instructions, see the complete guide: **[DEPLOYMENT.md](DEPLOYMENT.md)**.
+

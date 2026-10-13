@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Z-Code — Interactive Coding Platform</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Intelligent auto-redirect:
+    // If the user is already authenticated with a valid token, take them to the Dashboard;
+    // otherwise, direct them to the Login page.
+    (function () {
+      try {
+        var token = localStorage.getItem("zcode_token");
+        if (token) {
+          window.location.replace("home.html");
+          return;
+        }
+      } catch (e) {}
+      window.location.replace("login.html");
+    })();
+  </script>
+  <meta http-equiv="refresh" content="0; url=login.html">
+</head>
+<body style="margin:0; background:#0c0a09; color:#e7e5e4; font-family:'Inter',system-ui,sans-serif; display:flex; align-items:center; justify-content:center; height:100vh;">
+  <div style="text-align:center;">
+    <div style="width:48px; height:48px; border:3px solid #dcb56b; border-top-color:transparent; border-radius:50%; animation:spin 1s linear infinite; margin:0 auto 16px;"></div>
+    <h2 style="font-weight:600; font-size:1.1rem; color:#f7d994; margin:0 0 8px;">Loading Z-Code…</h2>
+    <p style="font-size:0.875rem; color:#888; margin:0;">
+      If you are not redirected automatically, <a href="login.html" style="color:#dcb56b; text-decoration:underline;">click here to continue</a>.
+    </p>
+  </div>
+  <style>
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</body>
+</html>

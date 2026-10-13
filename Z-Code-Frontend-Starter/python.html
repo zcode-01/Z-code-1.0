@@ -965,7 +965,7 @@
           try {
             await ZCodeAPI.login("dhanush@zcode.dev", "demo123");
           } catch (e) {
-            alert("Could not reach backend at http://localhost:8000. Please ensure ./start.sh is running!");
+            alert("Could not reach backend API at " + (window.ZCodeAPI ? ZCodeAPI.getBaseUrl() : "server") + ". Please ensure the backend is running!");
             return;
           }
         } else {

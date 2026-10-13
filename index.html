@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Z-Code — Interactive Coding Platform</title>
+  <script>
+    (function () {
+      try {
+        var token = localStorage.getItem("zcode_token");
+        if (token) {
+          window.location.replace("Z-Code-Frontend-Starter/home.html");
+          return;
+        }
+      } catch (e) {}
+      window.location.replace("Z-Code-Frontend-Starter/login.html");
+    })();
+  </script>
+  <meta http-equiv="refresh" content="0; url=Z-Code-Frontend-Starter/login.html">
+</head>
+<body style="margin:0; background:#0c0a09; color:#e7e5e4; font-family:'Inter',system-ui,sans-serif; display:flex; align-items:center; justify-content:center; height:100vh;">
+  <div style="text-align:center;">
+    <h2 style="font-weight:600; font-size:1.1rem; color:#f7d994; margin:0 0 8px;">Loading Z-Code…</h2>
+    <p style="font-size:0.875rem; color:#888; margin:0;">
+      Redirecting to <a href="Z-Code-Frontend-Starter/login.html" style="color:#dcb56b;">Z-Code Portal</a>.
+    </p>
+  </div>
+</body>
+</html>

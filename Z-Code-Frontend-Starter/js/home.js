@@ -342,7 +342,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-radius:8px;background:#14120e;">
           <div>
             <strong>Interactive Backend Host</strong>
-            <p style="margin:2px 0 0;font-size:12px;color:#888;">http://localhost:8000/api</p>
+            <p style="margin:2px 0 0;font-size:12px;color:#888;">${window.ZCodeAPI ? window.ZCodeAPI.getBaseUrl() : '/api'}</p>
           </div>
           <span style="color:#4ade80;font-size:13px;font-weight:bold;">Active ●</span>
         </div>

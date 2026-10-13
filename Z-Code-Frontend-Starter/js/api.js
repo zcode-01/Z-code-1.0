@@ -9,7 +9,25 @@
  *   const stats = await ZCodeAPI.getStats();
  */
 
-const API_BASE = "http://localhost:8000/api";
+function getApiBase() {
+  // 1. Manually overridden in localStorage
+  try {
+    const saved = localStorage.getItem("zcode_api_base");
+    if (saved && saved.trim()) return saved.trim().replace(/\/+$/, "");
+  } catch (e) {}
+
+  // 2. Window global configuration if provided
+  if (window.__ZCODE_API_BASE__) return window.__ZCODE_API_BASE__.replace(/\/+$/, "");
+
+  // 3. Localhost development (or opened from file system)
+  const host = window.location.hostname;
+  if (host === "localhost" || host === "127.0.0.1" || host === "" || window.location.protocol === "file:") {
+    return "http://localhost:8000/api";
+  }
+
+  // 4. In production (e.g. Vercel deployment), use relative /api proxy
+  return "/api";
+}
 
 // ─── Token Storage ───────────────────────────
 const ZCodeAuth = {
@@ -41,7 +59,9 @@ async function apiFetch(path, options = {}) {
     ...(options.headers || {}),
   };
 
-  const response = await fetch(`${API_BASE}${path}`, {
+  const base = getApiBase();
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  const response = await fetch(`${base}${cleanPath}`, {
     ...options,
     headers,
     body: options.body ? JSON.stringify(options.body) : undefined,
@@ -57,6 +77,16 @@ async function apiFetch(path, options = {}) {
 
 // ─── Z-Code API ─────────────────────────────
 const ZCodeAPI = {
+  getBaseUrl() {
+    return getApiBase();
+  },
+  setBaseUrl(url) {
+    if (!url || !url.trim()) {
+      localStorage.removeItem("zcode_api_base");
+    } else {
+      localStorage.setItem("zcode_api_base", url.trim().replace(/\/+$/, ""));
+    }
+  },
 
   // AUTH
   async signup(name, email, password) {

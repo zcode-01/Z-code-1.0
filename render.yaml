@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: zcode-backend
+    env: python
+    plan: free
+    region: oregon
+    buildCommand: bash backend/setup.sh
+    startCommand: bash backend/start.sh
+    autoDeploy: true
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite+aiosqlite:///./zcode.db
+      - key: SECRET_KEY
+        generateValue: true
+    healthCheckPath: /api/health
