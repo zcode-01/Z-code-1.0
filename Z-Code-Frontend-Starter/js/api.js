@@ -25,8 +25,8 @@ function getApiBase() {
     return "http://localhost:8000/api";
   }
 
-  // 4. In production (e.g. Vercel deployment), use relative /api proxy
-  return "/api";
+  // 4. In production, connect directly to the live Render backend
+  return "https://zcode-backend-9sfe.onrender.com/api";
 }
 
 // ─── Token Storage ───────────────────────────
@@ -68,8 +68,14 @@ async function apiFetch(path, options = {}) {
   });
 
   if (!response.ok) {
-    const error = await response.json().catch(() => ({ detail: "Unknown error" }));
-    throw new Error(error.detail || `HTTP ${response.status}`);
+    let errorDetail = "";
+    try {
+      const errorJson = await response.json();
+      errorDetail = errorJson.detail || errorJson.message || "";
+    } catch (e) {
+      errorDetail = `HTTP ${response.status} ${response.statusText || ""}`.trim();
+    }
+    throw new Error(errorDetail || `HTTP ${response.status}`);
   }
 
   return response.json();
