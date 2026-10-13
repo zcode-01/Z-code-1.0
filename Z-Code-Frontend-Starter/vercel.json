@@ -1,11 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://zcode-backend.onrender.com/api/:path*"
+      "destination": "https://zcode-backend-9sfe.onrender.com/api/:path*"
     },
     {
       "source": "/",
