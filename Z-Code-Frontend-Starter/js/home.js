@@ -356,11 +356,36 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (dropSettingsBtn) dropSettingsBtn.addEventListener("click", openSettingsModal);
 
   // ─── AI Chatbot Connected to Backend ─────────────────────
+  let chatHistoryLoaded = false;
+  async function loadChatHistory() {
+    if (chatHistoryLoaded || !window.ZCodeAuth || !ZCodeAuth.isLoggedIn()) return;
+    try {
+      const history = await ZCodeAPI.getChatHistory();
+      if (Array.isArray(history) && history.length > 0) {
+        chatHistoryLoaded = true;
+        history.forEach((item) => {
+          const msgEl = document.createElement("div");
+          msgEl.className = item.role === "user" ? "user-message" : "ai-message";
+          msgEl.textContent = item.content;
+          aiBody.appendChild(msgEl);
+        });
+        aiBody.scrollTop = aiBody.scrollHeight;
+      }
+    } catch (_) {}
+  }
+
   if (fab && chat) {
     fab.addEventListener("click", () => {
-      chat.classList.add("open");
-      chat.setAttribute("aria-hidden", "false");
-      if (aiInput) aiInput.focus();
+      const isOpen = chat.classList.contains("open");
+      if (isOpen) {
+        chat.classList.remove("open");
+        chat.setAttribute("aria-hidden", "true");
+      } else {
+        chat.classList.add("open");
+        chat.setAttribute("aria-hidden", "false");
+        loadChatHistory();
+        if (aiInput) aiInput.focus();
+      }
     });
   }
 
@@ -396,8 +421,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       try {
         if (window.ZCodeAuth && !ZCodeAuth.isLoggedIn()) {
-          // Auto login demo user if not logged in
-          await ZCodeAPI.login("dhanush@zcode.dev", "demo123");
+          try {
+            // Auto login demo user if not logged in
+            await ZCodeAPI.login("dhanush@zcode.dev", "demo123");
+          } catch (_) {
+            // Demo auto-login can silently fail if backend isn't running yet;
+            // sendChatMessage will automatically use direct NVIDIA connection.
+          }
         }
 
         const res = await ZCodeAPI.sendChatMessage(text);

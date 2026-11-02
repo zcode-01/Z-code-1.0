@@ -25,6 +25,7 @@ from .schemas import TokenData
 
 # OAuth2 scheme — frontend sends the token in Authorization: Bearer <token>
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/login")
+oauth2_scheme_optional = OAuth2PasswordBearer(tokenUrl="/api/auth/login", auto_error=False)
 
 
 def hash_password(password: str) -> str:
@@ -73,6 +74,29 @@ async def get_current_user(
     if user is None:
         raise credentials_exc
     return user
+
+
+async def get_optional_current_user(
+    token: Annotated[str | None, Depends(oauth2_scheme_optional)],
+    db: Annotated[AsyncSession, Depends(get_db)],
+) -> User | None:
+    """
+    FastAPI dependency — returns the User if a valid JWT token is provided.
+    Returns None if no token or an invalid/expired token is provided (does not throw 401).
+    """
+    if not token:
+        return None
+    try:
+        payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
+        user_id_str: str | None = payload.get("sub")
+        if user_id_str is None:
+            return None
+        token_data = TokenData(user_id=int(user_id_str))
+    except (JWTError, ValueError):
+        return None
+
+    result = await db.execute(select(User).where(User.id == token_data.user_id))
+    return result.scalar_one_or_none()
 
 
 async def get_admin_user(

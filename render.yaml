@@ -12,4 +12,10 @@ services:
         value: sqlite+aiosqlite:///./zcode.db
       - key: SECRET_KEY
         generateValue: true
+      - key: NVIDIA_API_KEY
+        sync: false
+      - key: NVIDIA_BASE_URL
+        value: https://integrate.api.nvidia.com/v1
+      - key: NVIDIA_MODEL
+        value: nvidia/nemotron-3-ultra-550b-a55b
     healthCheckPath: /api/health

@@ -195,6 +195,8 @@ class ChatRequest(BaseModel):
 
 class ChatResponse(BaseModel):
     reply: str
+    reasoning: str | None = None
+    model: str | None = None
 
 
 class ChatHistoryItem(BaseModel):

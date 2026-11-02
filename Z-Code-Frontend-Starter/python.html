@@ -840,7 +840,7 @@
     </div>
 
 
-    <div class="ai-body">
+    <div class="ai-body" id="aiBody">
 
       <div class="ai-message">
         Hi! I'm your Z-Code tutor.
@@ -850,9 +850,9 @@
     </div>
 
 
-    <form class="ai-input">
+    <form class="ai-input" id="aiForm">
 
-      <input type="text" placeholder="Ask anything...">
+      <input id="aiInput" type="text" placeholder="Ask anything..." autocomplete="off">
 
       <button>
         →
@@ -862,8 +862,7 @@
 
   </section>
 
-
-
+  <script src="js/api.js"></script>
   <script>
     const aiFab = document.getElementById("aiFab");
     const aiChat = document.getElementById("aiChat");
@@ -872,16 +871,40 @@
     const aiInput = document.getElementById("aiInput");
     const aiBody = document.getElementById("aiBody");
 
+    let pythonChatHistoryLoaded = false;
+    async function loadPythonChatHistory() {
+      if (pythonChatHistoryLoaded || !window.ZCodeAuth || !ZCodeAuth.isLoggedIn()) return;
+      try {
+        const history = await ZCodeAPI.getChatHistory();
+        if (Array.isArray(history) && history.length > 0) {
+          pythonChatHistoryLoaded = true;
+          history.forEach((item) => {
+            const msgEl = document.createElement("div");
+            msgEl.className = item.role === "user" ? "user-message" : "ai-message";
+            msgEl.textContent = item.content;
+            aiBody.appendChild(msgEl);
+          });
+          aiBody.scrollTop = aiBody.scrollHeight;
+        }
+      } catch (_) {}
+    }
+
     if (aiFab && aiChat) {
       aiFab.addEventListener("click", () => {
-        aiChat.classList.add("show");
-        if (aiInput) aiInput.focus();
+        const isOpen = aiChat.classList.contains("show") || aiChat.classList.contains("open");
+        if (isOpen) {
+          aiChat.classList.remove("show", "open");
+        } else {
+          aiChat.classList.add("show", "open");
+          loadPythonChatHistory();
+          if (aiInput) aiInput.focus();
+        }
       });
     }
 
     if (closeAi && aiChat) {
       closeAi.addEventListener("click", () => {
-        aiChat.classList.remove("show");
+        aiChat.classList.remove("show", "open");
       });
     }
 
@@ -907,7 +930,9 @@
 
         try {
           if (window.ZCodeAuth && !ZCodeAuth.isLoggedIn()) {
-            await ZCodeAPI.login("dhanush@zcode.dev", "demo123");
+            try {
+              await ZCodeAPI.login("dhanush@zcode.dev", "demo123");
+            } catch (_) {}
           }
           const res = await ZCodeAPI.sendChatMessage(text);
           aiMsg.style.fontStyle = "normal";
@@ -920,7 +945,6 @@
       });
     }
   </script>
-  <script src="js/api.js"></script>
   <script>
 
     /* =========================

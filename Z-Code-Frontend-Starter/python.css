@@ -855,7 +855,8 @@ body {
 }
 
 
-.ai-chat.show {
+.ai-chat.show,
+.ai-chat.open {
   display: block;
 }
 
@@ -914,28 +915,39 @@ body {
 
 
 .ai-body {
-  height: 230px;
-
-  padding: 17px;
-
+  height: 300px;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   background: #080a0a;
 }
 
 
-.ai-message {
-  padding: 12px;
-
-  border-radius: 9px;
-
-  background: #141510;
-
-  border: 1px solid #302b21;
-
-  color: #b7b4ab;
-
-  font-size: 12px;
-
+.ai-message,
+.user-message {
+  padding: 11px 13px;
+  border-radius: 12px;
+  font-size: 13px;
   line-height: 1.5;
+  max-width: 85%;
+  word-break: break-word;
+}
+
+
+.ai-message {
+  background: #181611;
+  border: 1px solid #322b20;
+  color: #d0ccc4;
+}
+
+
+.user-message {
+  margin-left: auto;
+  background: #dcb86e;
+  color: #17130e;
+  font-weight: 500;
 }
 
 

@@ -53,12 +53,29 @@ Right-click `Z-Code-Frontend-Starter/login.html` and click **"Open with Live Ser
 
 ## 📁 Project Structure
 
-- `backend/` — FastAPI backend with SQLite, SQLAlchemy, JWT auth, AI chat, and quiz validation.
+- `backend/` — FastAPI backend with SQLite, SQLAlchemy, JWT auth, AI chat (powered by NVIDIA Nemotron 3 Ultra), and quiz validation.
 - `Z-Code-Frontend-Starter/` — Web application:
   - `login.html` — User sign in & authentication.
   - `home.html` — Learning dashboard, progress, and AI assistant popup.
   - `python.html` — Python course curriculum with interactive quiz linked to backend XP.
-  - `js/api.js` — Client library to interact with backend endpoints.
+  - `js/api.js` — Client library connecting to backend `/api/chat` with direct NVIDIA AI fallback.
+
+---
+
+## 🤖 NVIDIA Nemotron 3 AI Tutor Integration
+
+Z-Code 1.0 integrates the **NVIDIA Nemotron 3 Ultra 550B** reasoning model (`nvidia/nemotron-3-ultra-550b-a55b`) across both frontend and backend:
+
+1. **Backend Integration**:
+   - Configured in `backend/app/config.py` and `backend/.env` via `NVIDIA_API_KEY`, `NVIDIA_BASE_URL`, and `NVIDIA_MODEL`.
+   - `backend/app/routers/chat.py` sends user conversation history with reasoning extraction (`enable_thinking=True`).
+   - Persists user and assistant messages in the SQLite database.
+   - Includes Google Gemini fallback.
+
+2. **Frontend Integration**:
+   - In `Z-Code-Frontend-Starter/js/api.js`, `ZCodeAPI.sendChatMessage` routes requests through the backend `/api/chat`.
+   - If the backend is running offline or frontend is launched in standalone mode, it automatically falls back to direct client-side NVIDIA NIM API calls.
+   - Works across both `home.html` and `python.html` interactive chat drawers.
 
 ---
 

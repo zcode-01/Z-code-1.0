@@ -81,6 +81,30 @@ async function apiFetch(path, options = {}) {
   return response.json();
 }
 
+// NVIDIA Configuration for frontend client
+const NVIDIA_AI_CONFIG = {
+  apiKey: "", // Kept securely on the backend in .env; never exposed in public client code
+  baseUrl: "https://integrate.api.nvidia.com/v1",
+  model: "nvidia/nemotron-3-ultra-550b-a55b",
+  systemPrompt: `You are Z-Code AI, a friendly and encouraging coding tutor for the Z-Code learning platform.
+
+Your role:
+- Help students learn Python programming (and other languages)
+- Explain programming concepts in simple, clear terms
+- Encourage students when they're stuck
+- Provide short code examples when helpful
+- Keep answers concise and easy to understand for beginners
+- Stay focused on coding/programming topics
+
+Z-Code Platform features:
+- Structured courses (Python, JavaScript, etc.)
+- Lessons with quizzes to unlock the next chapter
+- XP and leveling system to gamify learning
+- Streak tracking for daily motivation
+
+Always be warm, supportive, and encouraging. If someone is confused, reassure them that it's normal and that they'll get it with practice.`
+};
+
 // ─── Z-Code API ─────────────────────────────
 const ZCodeAPI = {
   getBaseUrl() {
@@ -179,12 +203,90 @@ const ZCodeAPI = {
     return apiFetch("/quizzes/history");
   },
 
+  // ─── NVIDIA NEMOTRON AI CLIENT ──────────────────
+  getNvidiaConfig() {
+    return { ...NVIDIA_AI_CONFIG };
+  },
+
+  setNvidiaApiKey(key) {
+    if (key) NVIDIA_AI_CONFIG.apiKey = key;
+  },
+
+  async callNvidiaDirect(message, history = []) {
+    const messages = [
+      { role: "system", content: NVIDIA_AI_CONFIG.systemPrompt }
+    ];
+    if (Array.isArray(history)) {
+      history.slice(-10).forEach(m => {
+        messages.push({
+          role: m.role === "assistant" || m.role === "model" ? "assistant" : "user",
+          content: m.content || ""
+        });
+      });
+    }
+    messages.push({ role: "user", content: message });
+
+    const response = await fetch(`${NVIDIA_AI_CONFIG.baseUrl.replace(/\/+$/, "")}/chat/completions`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${NVIDIA_AI_CONFIG.apiKey}`,
+      },
+      body: JSON.stringify({
+        model: NVIDIA_AI_CONFIG.model,
+        messages: messages,
+        temperature: 0.7,
+        top_p: 0.95,
+        max_tokens: 4096,
+        chat_template_kwargs: { enable_thinking: true },
+        stream: false,
+      }),
+    });
+
+    if (!response.ok) {
+      const errText = await response.text();
+      throw new Error(`NVIDIA API error (${response.status}): ${errText}`);
+    }
+
+    const data = await response.json();
+    const choice = data.choices && data.choices[0];
+    const reply = (choice?.message?.content || choice?.message?.reasoning_content || "").trim();
+    return {
+      reply: reply || "I'm here to help you code! Ask me anything about your lessons.",
+      reasoning: choice?.message?.reasoning_content || null,
+      model: NVIDIA_AI_CONFIG.model,
+      source: "nvidia-direct"
+    };
+  },
+
   // AI CHAT
   async sendChatMessage(message) {
-    return apiFetch("/chat", {
-      method: "POST",
-      body: { message },
-    });
+    if (!message || !message.trim()) {
+      throw new Error("Message cannot be empty.");
+    }
+
+    // 1. Send to backend endpoint (routes to NVIDIA Nemotron 3 Ultra and persists chat history)
+    try {
+      return await apiFetch("/chat", {
+        method: "POST",
+        body: { message },
+      });
+    } catch (backendError) {
+      // 2. If backend is offline or returned an error, attempt direct client call (if permitted by environment)
+      try {
+        return await this.callNvidiaDirect(message);
+      } catch (_) {
+        const isNetworkErr = backendError.message && (
+          backendError.message.includes("Failed to fetch") ||
+          backendError.message.includes("NetworkError") ||
+          backendError.message.includes("Load failed")
+        );
+        if (isNetworkErr) {
+          throw new Error("Backend server is not running. Please start it with: cd backend && ./start.sh");
+        }
+        throw new Error(backendError.message || "Failed to reach AI service.");
+      }
+    }
   },
 
   async getChatHistory() {
